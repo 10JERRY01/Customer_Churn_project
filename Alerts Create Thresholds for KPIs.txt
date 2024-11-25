@@ -1,0 +1,36 @@
+Alerts: Create Thresholds for KPIs
+Integrate alerts for KPIs like Churn Rate > 20% or Low Usage Frequency.
+
+In Tableau:
+Churn Rate Alert:
+
+Create a calculated field:
+tableau
+Copy code
+IF SUM(IF [Churn] = 'Yes' THEN 1 ELSE 0 END) / COUNT([CustomerID]) > 0.2 THEN "Alert: High Churn"
+ELSE "Churn Rate Normal"
+END
+Add this field to the dashboard.
+Low Usage Alert:
+
+Define a threshold:
+tableau
+Copy code
+IF AVG([Usage Frequency]) < 10 THEN "Alert: Low Engagement"
+ELSE "Usage Normal"
+END
+Trigger Notification:
+
+Use a red indicator (e.g., color card) for KPIs breaching thresholds.
+In Power BI:
+KPI Card with Alerts:
+
+Add a DAX measure:
+dax
+Copy code
+ChurnAlert = IF(CALCULATE(SUM(CustomerData[Churn]) / COUNT(CustomerData[CustomerID])) > 0.2, "High Churn Alert", "Normal")
+Use conditional formatting to color-code the card.
+Email Notifications (Power BI Pro):
+
+Set up a data-driven alert for Churn Rate > 20%.
+Configure the Power BI Service to send email notifications.
