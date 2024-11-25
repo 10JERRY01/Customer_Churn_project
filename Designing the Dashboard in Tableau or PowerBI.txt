@@ -1,0 +1,105 @@
+Designing the Dashboard in Tableau/Power BI
+Here’s how you can use the cleaned dataset to design an interactive dashboard that displays the KPIs for monitoring customer engagement, churn, and other metrics.
+
+Step 1: Preparing Data for Import
+Ensure Dataset Format:
+
+Save the cleaned data to a CSV or directly connect Tableau/Power BI to the SQLite database.
+File name: cleaned_customer_data.csv
+Important Columns for Dashboard:
+
+CustomerID
+Age
+Gender
+Tenure
+Usage Frequency
+Support Calls
+Payment Delay
+Subscription Type
+Contract Length
+Total Spend
+Churn
+Step 2: Import Data
+In Tableau:
+Open Tableau and click Connect to Data.
+Choose Text File (for CSV) or SQLite (for the database).
+Load the cleaned_customer_data.csv file or connect to the database.
+In Power BI:
+Open Power BI and click Get Data → Choose Text/CSV or Database.
+Load the cleaned_customer_data.csv file or connect to the SQLite database.
+Step 3: Create Dashboard Components
+1. KPI Cards
+Metric: Churn Rate
+
+Formula in Tableau:
+tableau
+Copy code
+SUM(IF [Churn] = 'Yes' THEN 1 ELSE 0 END) / COUNT([CustomerID])
+Visual: KPI Card displaying churn rate percentage.
+Metric: Average Spend
+
+Formula:
+tableau
+Copy code
+AVG([Total Spend])
+Visual: KPI Card showing average spend per customer.
+2. Bar Chart: Churn by Subscription Type
+Dimension: Subscription Type
+Measure: Percentage of churn (Churn = Yes).
+Tableau:
+Drag Subscription Type to Columns.
+Drag Churn to Rows → Filter Yes.
+Use the Quick Table Calculation → Percent of Total.
+Power BI:
+Use a clustered bar chart and filter for Churn = Yes.
+Visual: Stacked bar chart showing churn percentage for each subscription type.
+3. Time-Series Chart: Usage Trends
+Dimension: Tenure (Months).
+Measure: Average Usage Frequency.
+Visual: Line chart showing trends in usage frequency over tenure.
+4. Heatmap: Churn by Gender and Age
+Rows: Gender
+Columns: Age groups (create age bins like 18–25, 26–35, etc.).
+Measure: Churn percentage.
+Tableau:
+Use Churn as a filter and calculate churn rate for each bin.
+Use the Density chart option.
+Power BI:
+Use a matrix or heatmap visual with color gradients for churn percentage.
+5. Filters
+Add dynamic filters for:
+Age
+Gender
+Subscription Type
+Contract Length
+Step 4: Adding Interactivity
+Tableau:
+Add filter actions to allow clicking on a subscription type or segment to update all charts.
+Use parameter controls for setting thresholds (e.g., highlight customers with low usage frequency).
+Power BI:
+Use slicers for Gender, Subscription Type, and Age.
+Create drill-through pages to see detailed metrics per customer.
+Step 5: Dashboard Layout
+Suggested Layout:
+Top Row (KPI Cards):
+
+Churn Rate | Average Spend | Revenue Loss
+Middle Row (Visuals):
+
+Left: Bar Chart (Churn by Subscription Type)
+Right: Time-Series (Usage Trends)
+Bottom Row (Advanced Analysis):
+
+Left: Heatmap (Churn by Gender & Age)
+Right: Customer Segment Breakdown Table
+Step 6: Exporting & Sharing
+Tableau:
+Publish to Tableau Public or your Tableau Server.
+Share the link or embed the dashboard in a website.
+Power BI:
+Publish to Power BI Service.
+Share the dashboard with stakeholders using a direct link.
+Additional Enhancements
+Predictive Insights: Incorporate the churn prediction model built earlier.
+Alerts: Create thresholds for KPIs (e.g., Churn Rate > 20%) to trigger notifications.
+Documentation: Write a README or create a walkthrough video for the dashboard.
