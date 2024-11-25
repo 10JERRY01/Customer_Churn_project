@@ -34,3 +34,31 @@ Email Notifications (Power BI Pro):
 
 Set up a data-driven alert for Churn Rate > 20%.
 Configure the Power BI Service to send email notifications.
+Project Title: Automated Operational Dashboard for KPI Monitoring
+Dataset: Customer Churn Dataset
+Description: This dashboard monitors KPIs like churn rate, customer engagement, and revenue. It includes predictive insights and alerts for threshold breaches.
+
+Key Features:
+
+KPIs Monitored:
+Churn Rate.
+Average Spend per Customer.
+Usage Trends.
+Predictive Insights:
+Predict customer churn using logistic regression.
+Identify high-risk customers.
+Alerts:
+High churn rate (>20%).
+Low usage frequency alerts.
+Interactive Filters:
+Gender, Subscription Type, Age.
+Technical Implementation:
+
+ETL Pipeline: Data cleaning, transformation, and loading.
+Prediction Model: Logistic regression with sklearn.
+Visualization: Tableau/Power BI.
+How to Run:
+
+Load customer_data_with_predictions.csv into Tableau/Power BI.
+Follow the predefined steps to set up visuals and filters.
+Use filters to explore KPIs and predictive insights.
